@@ -18,7 +18,7 @@ Simple &amp; funny ransomware with python progaramming language
 ## Key 🔑
 In this release key saves at file named "key" in the same directory.
 
-## TODO 
+## TODO 📝
 - [x] Choose Encrypted & target🎯 files extensions
 - [ ] Send arguments with bash/cmd
 - [ ] Add a secure method to send key
@@ -28,4 +28,4 @@ In this release key saves at file named "key" in the same directory.
 ###### Your PRs make us so happy 😊
 
 ## Disclaimer ⚠️
-###### The code within this repository comes with no guarantee, the use of this code is your responsibility*. I take 'NO' responsibility and/or liability for how you choose to use any of the source code available here. By using any of the files available in this repository, you understand that you are AGREEING TO USE AT YOUR OWN RISK.
+###### 📌The code within this repository comes with no guarantee, the use of this code is your responsibility*. I take 'NO' responsibility and/or liability for how you choose to use any of the source code available here. By using any of the files available in this repository, you understand that you are AGREEING TO USE AT YOUR OWN RISK.
