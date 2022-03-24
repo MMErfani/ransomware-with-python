@@ -22,6 +22,8 @@ In this release key saves at file named "key" in the same directory.
 - [x] Choose Encrypted & target🎯 files extensions
 - [ ] Send arguments with bash/cmd
 - [ ] Add a secure method to send key
+- [ ] Add simple GUI
+- [ ] Alert user when encryption completed 
 - [ ] Encrypted & decrypt all drive's of devise
 - [ ] Encrypted & Decrypt all file extensions
 
