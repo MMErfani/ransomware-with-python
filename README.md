@@ -17,6 +17,8 @@ Simple &amp; funny ransomware with python progaramming language
 
 ## Key 🔑
 In this release key saves at file named "key" in the same directory.
+It's really important to save this until you decrypt file's 
+Don't forget this key is the only way for decrypt your file's!
 
 ## TODO 📝
 - [x] Choose Encrypted & target🎯 files extensions
