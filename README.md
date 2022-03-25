@@ -26,7 +26,7 @@ Don't forget this key is the only way for decrypt your file's!
 - [x] Get device's info and save it
 - [ ] Add a secure method to send key
 - [ ] Add simple GUI
-- [ ] Alert user when encryption completed 
+- [x] Alert user when encryption or decryption completed in windows
 - [ ] Encrypted & decrypt all drive's of devise
 - [ ] Encrypted & Decrypt all file extensions
 
