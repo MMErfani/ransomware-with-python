@@ -1,5 +1,6 @@
 # Simple Ransomware With Python💣
-Simple &amp; funny ransomware with python progaramming language
+Simple &amp; funny ransomware with python progaramming language.
+Maybe it's better to say this a cryptographer.
 
 ## Quick start ⏩
 - `git clone https://github.com/mmerfani/ransomware-with-python.git`
